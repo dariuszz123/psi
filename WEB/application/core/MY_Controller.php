@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
     /**
      * Load base css files in all controllers
      */
-    public function base_css() {
+    private function base_css() {
         $this->template->add_css('css/style.css');
         $this->template->add_css('css/bootstrap.css');
         $this->template->add_css('css/bootstrap-responsive.css');
@@ -21,7 +21,8 @@ class MY_Controller extends CI_Controller {
     /**
      * Load base js files in all crontollers
      */
-    public function base_js() {
+    private function base_js() {
+        $this->template->add_js('js/jquery-1.8.3.min.js');
         $this->template->add_js('js/bootstrap.min.js');
     }
     
