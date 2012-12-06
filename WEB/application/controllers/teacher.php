@@ -1,11 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Teacher extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('main_view');
 	}
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
