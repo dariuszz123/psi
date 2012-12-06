@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
+    <script src="/js/bootstrap.min.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
