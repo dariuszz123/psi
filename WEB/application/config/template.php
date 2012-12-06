@@ -56,13 +56,10 @@ $template['active_template'] = 'default';
 |--------------------------------------------------------------------------
 */
 
-$template['default']['template'] = 'templates/default/template.php';
+$template['default']['template'] = 'template/default/template.php';
 $template['default']['regions'] = array(
    'title',
-   'head_ads',
-   'meniu',
    'center_content',
-   'right_content',
 );
 $template['default']['parser'] = 'parser';
 $template['default']['parser_method'] = 'parse';
