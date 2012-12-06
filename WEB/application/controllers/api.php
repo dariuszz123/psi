@@ -12,6 +12,9 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
     
+    /**
+     * Rss feed for
+     */
     public function getNewsFeeds() {
         $data = array(
             'VU Bendruomenei' => 'http://naujienos.vu.lt/bendruomenei?format=feed&type=rss',
