@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -42,7 +42,7 @@
       }
 
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -65,7 +65,7 @@
           <input type="checkbox" value="2" name="checkbox"> Administratorius
         </label>
         <button class="btn btn-large btn-primary" type="submit" name="login">Prisijungti</button>
-        <button class="btn btn-large btn-primary" type="submit" name="reg">Registruotis</button>
+        <button class="btn btn-large" type="submit" name="reg">Registruotis</button>
       </form>
 
     </div> <!-- /container -->
