@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
+$db['default']['hostname'] = 'ds.cuf.lt';
+$db['default']['username'] = 'psi';
+$db['default']['password'] = 'a8aab04ec4a4787';
 $db['default']['database'] = '';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
