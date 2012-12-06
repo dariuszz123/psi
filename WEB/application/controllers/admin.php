@@ -5,6 +5,21 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('main_view');
 	}
+        public function viewUser() {
+            
+        }
+        public function delUser() {
+            
+        }
+        public function changeUserData() {
+            
+        }
+        public function makeAdmins(){
+            
+        }
+        public function sendMail() {
+            
+        }
 }
 
 /*
