@@ -5,6 +5,19 @@ class Teacher extends CI_Controller {
 	{
 		$this->load->view('main_view');
 	}
+        public function changePassword() {
+            
+        }
+        public function sendMessage() {
+            $this->template->add_css('css/style.css');
+            $this->template->add_css('css/bootstrap.css');
+            $this->template->add_css('css/bootstrap-responsive.css');
+        
+            $this->template->write('title', 'VUMA - pranešimų siuntimas studentams');
+            $data['msg'] = "";
+            $this->template->write_view('center_content', 'sendMessage', $data);
+            $this->template->render();
+        }
 }
 
 /*

@@ -1,8 +1,9 @@
- <div class="row-fluid">
-<div class="span2">
-<!--Sidebar content-->
-</div>
-<div class="span10">
-<!--Body content-->
-</div>
-</div>
+    <div class="row-fluid">
+    <div class="span12">
+    Fluid 12
+    <div class="row-fluid">
+    <div class="span6">Fluid 6</div>
+    <div class="span6">Fluid 6</div>
+    </div>
+    </div>
+    </div>
