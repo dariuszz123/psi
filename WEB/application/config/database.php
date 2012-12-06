@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'ds.cuf.lt';
 $db['default']['username'] = 'psi';
-$db['default']['password'] = 'a8aab04ec4a4787';
-$db['default']['database'] = '';
+$db['default']['password'] = '5NShXbmSaZFA6fNS';
+$db['default']['database'] = 'psi';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
