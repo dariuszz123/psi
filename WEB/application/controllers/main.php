@@ -15,7 +15,11 @@ class Main extends MY_Controller {
         if($_POST) {
             $success = $this->user_model->login($this->input->post('email'), $this->input->post('password'));
             if($success === true) {
-                $user = $this->user_model;
+                if($this->user_model->user_have_type(USER_ADMIN) === false && $this->user_mode->user_have_type(USER_TEACHER)) {
+                    $this->user_model->logout();
+                    $this->session->set_flashdata('message_error', "Prisijungti gali tik dėstytojai ir administratoriai!");
+                    redirect(current_url());
+                }
                 //redirect();
             }else{
                 $this->session->set_flashdata('message_error', "Klaidingi prisijungimo duomenys");
@@ -27,13 +31,7 @@ class Main extends MY_Controller {
         $this->template->write_view('center_content', 'login', $data);
         $this->template->render();
     }
-
-    public function login() {
-        $this->template->write('title', 'VUMA - prisijungimas');
-        $this->template->write_view('center_content', 'login', $data);
-        $this->template->render();
-    }
-
+    
 }
 
 /* End of file welcome.php */
