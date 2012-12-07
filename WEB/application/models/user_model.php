@@ -18,12 +18,29 @@ class User_model extends CI_model {
     public function __construct() {
         $this->load->database();
     }
-
+    
     public function get_user_data($id) {
         $query = $this->db->query("SELECT * FROM `users` WHERE `id` = '$id'");
         return $query->row_array();
     }
-
+    
+    public function get_user() {
+        if($this->is_loggedin()) {
+            $user_id = $this->session->userdata('user_id');
+            return $this->get_user_data($user_id);
+        }
+        return false;
+    }
+    
+    public function user_have_type($type) {
+        $user = $this->get_user();
+        if($user && $user['user_type'] === $type) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public function is_user_exists($email) {
         $query = $this->db->query("SELECT `id` FROM `users` WHERE `nario_el_pastas` = '$email'");
         if ($query->num_rows() == 0) {
@@ -38,7 +55,7 @@ class User_model extends CI_model {
     }
 
     public function login($email, $pass) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activated` = '1' and `user_password` = '" . $this->encode_pass($pass) . "'");
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");
         if ($query->num_rows() == 1) {
             $user = $query->row_array();
             $this->db->query("UPDATE `users` SET `last_login` = NOW() WHERE `id` = '" . $user['id'] . "'");
@@ -59,11 +76,10 @@ class User_model extends CI_model {
 
         return false;
     }
-    
+
     public function gen_activation_hash() {
         return sha1(md5(hash('crc32', rand(1, 999))));
     }
-
 
     public function add_user($email, $password) {
 
@@ -82,27 +98,27 @@ class User_model extends CI_model {
         $this->db->query("INSERT INTO `users` 
                             SET 
                             `user_email` = '$email', 
-                            `user_password` = '".$this->encode_pass($password)."',
+                            `user_password` = '" . $this->encode_pass($password) . "',
                             `user_type` = '$user_type',
-                            `activation_hash` = '".$this->gen_activation_hash()."'
+                            `activation_hash` = '" . $this->gen_activation_hash() . "'
         ");
-        
+
         return true;
     }
-    
+
     public function is_valid_activation_hash($user_id, $hash) {
         $user = $this->get_user_data($user_id);
-        if($user && $user['activation_hash'] !== null && $user['activation_hash'] == $hash) {
+        if ($user && $user['activation_hash'] !== null && $user['activation_hash'] == $hash) {
             return true;
         }
         return false;
     }
-    
+
     public function activate_user($user_id, $hash) {
-        if($this->is_valid_activation_hash($user_id, $hash) === true) {
+        if ($this->is_valid_activation_hash($user_id, $hash) === true) {
             $this->db->query("UPDATE `users` SET `activated` = NULL WHERE `id` = '$user_id'");
             return true;
-        }else{
+        } else {
             return false;
         }
     }

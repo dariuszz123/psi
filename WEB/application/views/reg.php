@@ -5,4 +5,7 @@
     <input type="password" class="input-block-level" placeholder="Slaptažodis"name="password">
     <input type="password" class="input-block-level" placeholder="Pakartokite slaptažodį"name="password2">
     <button class="btn btn-large btn-primary" type="submit" name="reg">Registruotis</button>
+    <a href="<?php echo base_url();?>">
+        <button class="btn btn-large btn fr" type="button" >Atšaukti</button>
+    </a>
 </form>

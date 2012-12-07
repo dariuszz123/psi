@@ -14,5 +14,5 @@
     </div>
 </div>
 <div class="box_border" >
-       
+       atvaizduojamas bla bal bal
 </div>

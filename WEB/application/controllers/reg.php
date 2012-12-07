@@ -17,7 +17,7 @@ class Reg  extends CI_Controller {
             $this->template->add_css('css/bootstrap.css');
             $this->template->add_css('css/bootstrap-responsive.css');
             $this->template->write('title', 'VUMA - registracija');
-            $this->template->write_view('center_content', 'logged');
+            $this->template->write_view('center_content', 'reg');
             $this->template->render();
 	}
         public function registration() {
