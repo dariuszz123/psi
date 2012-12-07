@@ -26,8 +26,8 @@ public class Main extends Activity {
         return true;
     }
     public void onClickRssList(View view) {
-    	Intent i = new Intent(this, RssList.class);
-        startActivity(i);
+    	/*Intent i = new Intent(this, RssList.class);
+        startActivity(i);*/
     }
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -48,7 +48,6 @@ public class Main extends Activity {
             return super.onOptionsItemSelected(item);
         }
     }    
-    
     public void onMyButtonClick(View view)
     {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
