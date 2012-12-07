@@ -3,5 +3,5 @@
 	Options +FollowSymLinks -Indexes
 	RewriteEngine on
 
-RewriteCond $1 !^(index\.php|img|css|js|robots\.txt)
+RewriteCond $1 !^(index\.php|img|css|js|android-connect|robots\.txt)
 RewriteRule ^(.*)$ /index.php/$1 [L]
