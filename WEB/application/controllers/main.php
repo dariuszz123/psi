@@ -12,14 +12,13 @@ class Main extends MY_Controller {
         $this->template->render();
     }
     public function login() {
-        
         $this->template->write('title', 'VUMA - prisijungimas');
         $msg = NULL;
 	$session_id = $this->session->userdata('logged_in');
-        if ($session_id == true) 
-            $msg = "Jus jau prisijunges";
-        else 
-        {
+        if ($session_id == true) {
+           
+        }
+        else {
 
             $email = $this->security->xss_clean($this->input->post('email'));
             $password = $this->security->xss_clean($this->input->post('password'));
@@ -32,10 +31,7 @@ class Main extends MY_Controller {
                         {
                             $username = $this->login_model->getUserData($validate, 'nario_vardas, nario_levelis');
                             $newdata = array(
-                                        'id' => $validate,
-                        'username'  => $username['nario_vardas'],
-                                        'level'  => $username['nario_levelis'],
-                        'logged_in' => TRUE
+                                        'id' => $validate
                                 );
                                 $this->session->set_userdata($newdata);
                                 $msg = "Sveikiname sėkmingai prisijungus!";
