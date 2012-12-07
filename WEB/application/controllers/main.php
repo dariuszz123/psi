@@ -29,7 +29,6 @@ class Main extends MY_Controller {
 
     public function login() {
         $this->template->write('title', 'VUMA - prisijungimas');
-        $data = array();
         $this->template->write_view('center_content', 'login', $data);
         $this->template->render();
     }

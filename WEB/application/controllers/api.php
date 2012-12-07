@@ -16,14 +16,37 @@ class Api extends MY_Controller {
      * Rss feed for
      */
     public function getNewsFeeds() {
-        $data = array(
-            'VU Bendruomenei' => 'http://naujienos.vu.lt/bendruomenei?format=feed&type=rss',
-            'VU Mokslas' => 'http://naujienos.vu.lt/mokslas?format=feed&type=rss',
-            'VU Studijos' => 'http://naujienos.vu.lt/studijos?format=feed&type=rss',
-            'VU Įvykiai' => 'http://naujienos.vu.lt/ivykiai?format=feed&type=rss',
-        );
-        
-        echo json_encode($data);
+        $result = mysql_query("SELECT *FROM rss_list") or die(mysql_error());
+ 
+		// check for empty result
+		if (mysql_num_rows($result) > 0) {
+			// looping through all results
+			// products node
+			$response["rss_list"] = array();
+		 
+			while ($row = mysql_fetch_array($result)) {
+				// temp user array
+				$product = array();
+				$product["id"] = $row["id"];
+				$product["pavadinimas"] = $row["pavadinimas"];
+				$product["adresas"] = $row["adresas"];
+		 
+				// push single product into final response array
+				array_push($response["rss_list"], $product);
+			}
+			// success
+			$response["success"] = 1;
+		 
+			// echoing JSON response
+			echo json_encode($response);
+		} else {
+			// no products found
+			$response["success"] = 0;
+			$response["message"] = "No rss links found!";
+		 
+			// echo no users JSON
+			echo json_encode($response);
+		}
     }
     
     /**
