@@ -3,13 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title; ?></title>
-<?=$_styles?>
-<?=$_scripts?>
+<?php echo $_styles?>
+<?php echo $_scripts?>
 </head>
 <body>
     <div class="container">
         <?php echo $center_content; ?>
-        <div style="text-align: center;">Užkrauta per {elapsed_time}<br/> © 2012 VUMA</div>
     </div>
+    <div class="tac muted"><small>Užkrauta per {elapsed_time} © 2012 VUMA</small></div>
 </body>
 </html>

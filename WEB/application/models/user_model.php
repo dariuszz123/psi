@@ -38,7 +38,7 @@ class User_model extends CI_model {
     }
 
     public function login($email, $pass) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activated` = '1' and `user_password` = '" . $this->encode_pass($pass) . "'");
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");
         if ($query->num_rows() == 1) {
             $user = $query->row_array();
             $this->db->query("UPDATE `users` SET `last_login` = NOW() WHERE `id` = '" . $user['id'] . "'");
@@ -63,7 +63,6 @@ class User_model extends CI_model {
     public function gen_activation_hash() {
         return sha1(md5(hash('crc32', rand(1, 999))));
     }
-
 
     public function add_user($email, $password) {
 

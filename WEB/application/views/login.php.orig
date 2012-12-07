@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 <form class="form-signin" action="<?php echo base_url();?>" method="POST">
     <?php $this->load->view("errors/message_error"); ?>
+=======
+<form class="form-signin" action="<?php echo base_url();?>main/login" method="POST">
+<<<<<<< HEAD
+=======
+    <?php $this->load->view("errors/message_error", $msg); ?>
+>>>>>>> 1f17cbdf6c503db66262e37adb64297c5fbf8dc9
+>>>>>>> f42c2ffc41e5b7be2a5e0d1f1985e4181fe5c5c8
     <h2 class="form-signin-heading">Prisijungimas</h2>
     <input type="text" class="input-block-level" placeholder="El. paštas" name="email">
     <input type="password" class="input-block-level" placeholder="Slaptažodis" name="password">
