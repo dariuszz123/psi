@@ -7,8 +7,8 @@ class Main extends MY_Controller {
        }
     public function index() {        
         $this->template->write('title', 'VUMA - prisijungimas');
-    
-        $this->template->write_view('center_content', 'login');
+        $data['msg'] = null;
+        $this->template->write_view('center_content', 'login', $data);
         $this->template->render();
     }
     public function login() {
