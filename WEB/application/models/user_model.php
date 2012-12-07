@@ -18,29 +18,29 @@ class User_model extends CI_model {
     public function __construct() {
         $this->load->database();
     }
-    
+
     public function get_user_data($id) {
         $query = $this->db->query("SELECT * FROM `users` WHERE `id` = '$id'");
         return $query->row_array();
     }
-    
+
     public function get_user() {
-        if($this->is_loggedin()) {
+        if ($this->is_loggedin()) {
             $user_id = $this->session->userdata('user_id');
             return $this->get_user_data($user_id);
         }
         return false;
     }
-    
+
     public function user_have_type($type) {
         $user = $this->get_user();
-        if($user && $user['user_type'] === $type) {
+        if ($user && $user['user_type'] === $type) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
+
     public function is_user_exists($email) {
         $query = $this->db->query("SELECT `id` FROM `users` WHERE `nario_el_pastas` = '$email'");
         if ($query->num_rows() == 0) {
@@ -51,11 +51,11 @@ class User_model extends CI_model {
     }
 
     public function encode_pass($pass) {
-        return base64_encode(pack('H*', sha1($pass)));
+        return md5($pass);
     }
 
     public function login($email, $pass) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");        
         if ($query->num_rows() == 1) {
             $user = $query->row_array();
             $this->db->query("UPDATE `users` SET `last_login` = NOW() WHERE `id` = '" . $user['id'] . "'");
@@ -131,6 +131,10 @@ class User_model extends CI_model {
             }
         }
         return false;
+    }
+
+    public function logout() {
+        $this->session->set_userdata('user_id', null);
     }
 
 }
