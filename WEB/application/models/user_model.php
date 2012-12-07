@@ -51,11 +51,11 @@ class User_model extends CI_model {
     }
 
     public function encode_pass($pass) {
-        return base64_encode(pack('H*', sha1($pass)));
+        return md5($pass);
     }
 
     public function login($email, $pass) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");        
         if ($query->num_rows() == 1) {
             $user = $query->row_array();
             $this->db->query("UPDATE `users` SET `last_login` = NOW() WHERE `id` = '" . $user['id'] . "'");

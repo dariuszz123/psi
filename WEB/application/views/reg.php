@@ -1,5 +1,5 @@
 <form class="form-signin" action="<?php echo base_url();?>" method="POST">
-    <?php $this->load->view("errors/message_error", $msg); ?>
+    <?php $this->load->view("errors/message_error"); ?>
     <h2 class="form-signin-heading">Registracija</h2>
     <input type="text" class="input-block-level" placeholder="El. paštas" name="username">
     <input type="password" class="input-block-level" placeholder="Slaptažodis"name="password">
