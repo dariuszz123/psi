@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of login_model
+ * Description of
  *
  * @author KD
  */
@@ -24,24 +24,26 @@ class Login_model extends CI_model{
     public function IsExistEmail($email) 
     {
         $query = $this->db->query("SELECT `id` FROM `users` WHERE `nario_el_pastas` = '$email'");
-        if ($query->num_rows() == 0) 
-            return 0;
-        else 
-            return 1;
+        if ($query->num_rows() == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
     public function validateLogin($email, $pass) 
     {
         $pass = base64_encode(pack('H*', sha1($pass)));
-        $query  = $this->db->query("SELECT `id`,`user_password` FROM `users` WHERE `user_email` = '$email' and `activated` = '1'");
-        $slap = $query ->row_array();
-        if ($query->num_rows() == 1 and $pass == $slap['user_password']) 
+        $query  = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activated` = '1' and `user_password` = '$pass'");
+        if ($query->num_rows() == 1) 
         {
             $date = date("Y-m-d H:i:s",time());
             $this->db->query("UPDATE `users` SET `last_login` = '$date' WHERE `id` = '".$slap['id']."'");
             return $slap['id'];
         }
-        else
-                return 0;
+        else {
+                return false;
+        }
     }
 }
 
