@@ -15,6 +15,7 @@ class Main extends MY_Controller {
         if($_POST) {
             $success = $this->user_model->login($this->input->post('email'), $this->input->post('password'));
             if($success === true) {
+                $user = $this->user_model;
                 //redirect();
             }else{
                 $this->session->set_flashdata('message_error', "Klaidingi prisijungimo duomenys");
