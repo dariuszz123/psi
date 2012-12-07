@@ -19,6 +19,16 @@ class User_model extends CI_model {
         $this->load->database();
     }
 
+    public function count_users() {
+        $query = $this->db->query("SELECT * FROM `users`");
+        return $query->num_rows();
+    }
+    
+    public function get_all_users($offset, $limit) {
+        $query = $this->db->query("SELECT * FROM `users` LIMIT $limit OFFSET $offset");
+        return $query->result_array();
+    }
+
     public function get_user_data($id) {
         $query = $this->db->query("SELECT * FROM `users` WHERE `id` = '$id'");
         return $query->row_array();
@@ -34,7 +44,8 @@ class User_model extends CI_model {
 
     public function user_have_type($type) {
         $user = $this->get_user();
-        if ($user && $user['user_type'] === $type) {
+        //var_dump($user); die();
+        if ($user && $user['user_type'] == $type) {
             return true;
         } else {
             return false;
@@ -55,7 +66,7 @@ class User_model extends CI_model {
     }
 
     public function login($email, $pass) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");        
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email' and `activation_hash` IS NULL and `user_password` = '" . $this->encode_pass($pass) . "'");
         if ($query->num_rows() == 1) {
             $user = $query->row_array();
             $this->db->query("UPDATE `users` SET `last_login` = NOW() WHERE `id` = '" . $user['id'] . "'");

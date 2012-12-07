@@ -27,7 +27,9 @@ body {
 .clearfix {
     clear: both;
 }
-
+.mr5 {
+    margin-right: 5px;
+}
 .form-signin {
     max-width: 300px;
     padding: 19px 29px 29px;
