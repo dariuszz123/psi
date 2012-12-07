@@ -35,15 +35,35 @@ class Main extends MY_Controller {
         $this->template->write_view('center_content', 'login', $data);
         $this->template->render();
     }
-    
+
     public function register() {
-        $this->template->write('title', 'VUMA - prisijungimas');
+        $this->template->write('title', 'VUMA - registracija');
         
-        $this->template->write_view('center_content', 'reg');
+        if($_POST) {
+            
+            if($this->input->post('password') == $this->input->post('password_repeat')) {
+                $success = $this->user_model->register_user($this->input->post('email'), $this->input->post('password'));
+                if($success) {
+                    redirect('main/register_success');
+                }
+                redirect('main/register');
+            } else {
+                $this->session->set_flashdata('message_error', "Slaptažodžiai nesutampa");
+                redirect('main/register');
+            }
+            
+        }
+        
+        $this->template->write_view('center_content', 'register');
+        $this->template->render();
+    }
+
+    public function register_success() {
+        $this->template->write('title', 'VUMA - registracija');
+        $this->template->write_view('center_content', 'register_success');
         $this->template->render();
     }
     
 }
-
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
