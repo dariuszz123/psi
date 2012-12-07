@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">VUMA</string>
+    <string name="vuma_message">VUMA Projektas</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_login">Prisijungimas</string>
+    <string name="title_activity_main">VUMA</string>
+    
+    <string name="vuma_naujienos">NAUJIENOS</string>
+    <string name="vuma_tvarkarastis">TVARKARAŠTIS</string>
+    <string name="vuma_bendravimas">BENDRAVIMAS</string>
+    <string name="vuma_kontaktai">KONTAKTAI</string>
+
+</resources>
