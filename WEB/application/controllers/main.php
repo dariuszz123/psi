@@ -11,7 +11,7 @@ class Main extends MY_Controller {
 
     public function index() {
         $this->template->write('title', 'VUMA - prisijungimas');
-        
+
         if($this->user_model->is_loggedin()) {
             redirect('user');
         }
@@ -39,7 +39,7 @@ class Main extends MY_Controller {
     public function register() {
         $this->template->write('title', 'VUMA - prisijungimas');
         
-        $this->template->write_view('center_content', 'login');
+        $this->template->write_view('center_content', 'reg');
         $this->template->render();
     }
     

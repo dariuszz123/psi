@@ -4,7 +4,7 @@
     <input type="text" class="input-block-level" placeholder="El. paštas" name="email">
     <input type="password" class="input-block-level" placeholder="Slaptažodis" name="password">
     <button class="btn btn-large btn-primary fl" type="submit" name="login">Prisijungti</button>
-    <a href="<?php echo base_url();?>reg">
+    <a href="<?php echo base_url();?>main/register">
        <button class="btn btn-large fr" type="button">Registruotis</button>
     </a>
     <div class="clearfix"><!-- --></div>
