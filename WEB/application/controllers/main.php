@@ -12,6 +12,10 @@ class Main extends MY_Controller {
     public function index() {
         $this->template->write('title', 'VUMA - prisijungimas');
         
+        if($this->user_model->is_loggedin()) {
+            redirect('user');
+        }
+        
         if($_POST) {
             $success = $this->user_model->login($this->input->post('email'), $this->input->post('password'));
             if($success === true) {
