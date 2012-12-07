@@ -32,7 +32,7 @@ class User_model extends CI_model {
         return false;
     }
     
-    public function user_have_role($type) {
+    public function user_have_type($type) {
         $user = $this->get_user();
         if($user && $user['user_type'] === $type) {
             return true;
