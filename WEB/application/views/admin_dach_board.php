@@ -10,9 +10,12 @@
             <li>
                 <a href="<?php echo base_url();?>">Siųsti pranešimą</a>
             </li>
+            <li>
+                <a href="<?php echo base_url();?>">Tvarkyti vartotojus</a>
+            </li>
         </ul> 
     </div>
 </div>
 <div class="box_border" >
-       
+       atvaizduojamas bla bal bal
 </div>
