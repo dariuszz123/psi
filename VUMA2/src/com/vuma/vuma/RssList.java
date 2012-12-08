@@ -27,7 +27,7 @@ public class RssList extends ListActivity {
  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.all_rss);
+        setContentView(R.layout.activity_rss_list);
         if(isOnline()) {
         ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
       
@@ -87,4 +87,8 @@ public class RssList extends ListActivity {
 	    }
 	    return false;
 	}
+    public void onBackPressed(View view) {
+		super.onBackPressed();
+    return;
+}
 }

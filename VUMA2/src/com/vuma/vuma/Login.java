@@ -20,4 +20,8 @@ public class Login extends Activity {
     {
     	Toast.makeText(Login.this, "Try to log in...", Toast.LENGTH_LONG).show();
     }
+    public void onBackPressed(View view) {
+    		super.onBackPressed();
+        return;
+    }
 }

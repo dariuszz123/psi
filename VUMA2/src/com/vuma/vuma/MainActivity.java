@@ -1,5 +1,6 @@
 package com.vuma.vuma;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import api.Api;
 
 public class MainActivity extends Activity {
 
@@ -27,6 +29,10 @@ public class MainActivity extends Activity {
     	Intent i = new Intent(this, RssList.class);
         startActivity(i);
     }
+    public void onClickContacts(View view) {
+    	Intent i = new Intent(this, Contacts.class);
+        startActivity(i);
+    }
     public boolean onOptionsItemSelected(MenuItem item)
     {
 
@@ -40,19 +46,23 @@ public class MainActivity extends Activity {
 
         case R.id.menu_register:
         	Toast.makeText(MainActivity.this, "Preferences is Selecteds", Toast.LENGTH_SHORT).show();
+        	Api.DialogMessage(MainActivity.this, "VUMA registracija", "test test test\r\n\r\nTEST");
             return true;
 
         default:
             return super.onOptionsItemSelected(item);
         }
     }    
-    public void onMyButtonClick(View view)
+    public void DialogInformation(View view)
     {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	String message = "Vilniaus universiteto mobilioji aplikacija.\n\n" +
+    			"Kûrëjas:\nAurimas Sadauskas\nVilimantas Bernotaitis\nDarius Kriðtapavièius\nDonatas Kurapkis\n" +
+    			"Karolis Kleiba\n\nAtnaujinta: 2012-12-08";
+    	AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
     	builder.setCancelable(true);
     	builder.setIcon(R.drawable.ic_launcher);
-    	builder.setTitle("VUMA Informacija");
-    	builder.setMessage("VUMA mobilioji aplikacija.");
+    	builder.setTitle("VUMA 1.0");
+    	builder.setMessage(message);
     	builder.setInverseBackgroundForced(true);
     	builder.setPositiveButton("Uþdaryti", new DialogInterface.OnClickListener() {
     	  public void onClick(DialogInterface dialog, int which) {

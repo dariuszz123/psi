@@ -128,4 +128,8 @@ public class RssListRead extends ListActivity {
     	AlertDialog alert = builder.create();
     	alert.show();
 	}
+    public void onBackPressed(View view) {
+		super.onBackPressed();
+    return;
+}
 }

@@ -3,6 +3,7 @@ package com.vuma.vuma;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class RssListReadItem  extends Activity {
@@ -33,4 +34,8 @@ public class RssListReadItem  extends Activity {
         lblCost.setText(cost);
         lblDesc.setText(description);
     }
+    public void onBackPressed(View view) {
+		super.onBackPressed();
+    return;
+}
 }

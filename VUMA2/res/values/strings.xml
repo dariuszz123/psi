@@ -17,5 +17,11 @@
     <string name="login_text">Prisijungti</string>
     <string name="login_remember">Prisiminti?</string>
     <string name="title_activity_rss_list">RssList</string>
+    <string name="vuma_informacija">Informacija</string>
+    <string name="vuma_menu_back">Atgal</string>
+    <string name="list_null">NULL</string>
+    <string name="rss_autorius">Autorius:</string>
+    <string name="menu_more">Daugiau</string>
+    <string name="menu_help">Pagalba</string>
 
 </resources>
