@@ -19,6 +19,8 @@ class User_model extends CI_model {
         $this->load->database();
     }
 
+    
+    
     public function count_users() {
         $query = $this->db->query("SELECT * FROM `users`");
         return $query->num_rows();
