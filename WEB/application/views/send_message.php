@@ -1,5 +1,5 @@
-<div style="text-align: center;"><p class="text-error"><?php echo $msg; ?></p></div>
-<form class="form-signin" action="<?php echo base_url();?>main/login" method="POST" style="width: 450px; text-align: center;">
+<form action="<?php echo base_url();?>main/login" method="POST">
+    <?php $this->load->view("errors/message_error"); ?>
     <h2 class="form-signin-heading">Pranešimų siuntimas</h2>
    <select name="faculty">
         <option>Pasirinkite fakultetą:</option>
@@ -31,7 +31,4 @@
     </select>
     <textarea rows="5" cols="5" name="message"></textarea>
     <button class="btn btn-large btn-primary" type="submit" name="login">Siųsti</button>
-    <a href="<?php echo base_url();?>teacher">
-       <button class="btn btn-large btn-primary" type="button">Atšaukti</button>
-    </a>
 </form>
