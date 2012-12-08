@@ -55,7 +55,7 @@ class User_model extends CI_model {
     }
 
     public function is_user_exists($email) {
-        $query = $this->db->query("SELECT `id` FROM `users` WHERE `nario_el_pastas` = '$email'");
+        $query = $this->db->query("SELECT `id` FROM `users` WHERE `user_email` = '$email'");
         if ($query->num_rows() == 0) {
             return false;
         } else {
@@ -81,9 +81,9 @@ class User_model extends CI_model {
 
     public function get_user_type($email) {
 
-        if (preg_match("#(.*?)@stud.(.*).vu.lt#is", $email) === true) {
+        if (preg_match("#(.*?)@stud.(.*).vu.lt#is", $email)) {
             return USER_STUDENT;
-        } else if (preg_match("#(.*?)@(.*).vu.lt#is", $email) === true) {
+        } else if (preg_match("#(.*?)@(.*).vu.lt#is", $email)) {
             return USER_TEACHER;
         }
 
@@ -94,16 +94,21 @@ class User_model extends CI_model {
         return sha1(md5(hash('crc32', rand(1, 999))));
     }
 
-    public function add_user($email, $password) {
-
+    public function register_user($email, $password) {
+                
         if (strlen($password) < 6) {
             $this->session->set_flashdata('message_error', "Slaptažodis per trumpas.");
             return false;
         }
+        
+        if ($this->is_user_exists($email) === true) {
+            $this->session->set_flashdata('message_error', "Toks vartotojas jau egzistuoja.");
+            return false;
+        }
 
         $user_type = $this->get_user_type($email);
-
-        if ($user_type !== false) {
+        
+        if ($user_type === false) {
             $this->session->set_flashdata('message_error', "Klaidingas el. pašto adresas.");
             return false;
         }
