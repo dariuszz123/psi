@@ -121,7 +121,9 @@ class User_model extends CI_model {
 
         return true;
     }
-
+    
+    
+    
     public function is_valid_activation_hash($user_id, $hash) {
         $user = $this->get_user_data($user_id);
         if ($user && $user['activation_hash'] !== null && $user['activation_hash'] == $hash) {
