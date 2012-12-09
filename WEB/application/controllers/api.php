@@ -22,7 +22,7 @@ class Api extends MY_Controller {
 		if (mysql_num_rows($result) > 0) {
 			// looping through all results
 			// products node
-			$response["rss_list"] = array();
+			$response["rsslist"] = array();
 		 
 			while ($row = mysql_fetch_array($result)) {
 				// temp user array
@@ -32,16 +32,16 @@ class Api extends MY_Controller {
 				$product["adresas"] = $row["adresas"];
 		 
 				// push single product into final response array
-				array_push($response["rss_list"], $product);
+				array_push($response["rsslist"], $product);
 			}
 			// success
-			$response["success"] = 1;
+			//$response["success"] = 1;
 		 
 			// echoing JSON response
 			echo json_encode($response);
 		} else {
 			// no products found
-			$response["success"] = 0;
+			//$response["success"] = 0;
 			$response["message"] = "No rss links found!";
 		 
 			// echo no users JSON

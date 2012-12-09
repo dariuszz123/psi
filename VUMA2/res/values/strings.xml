@@ -1,0 +1,39 @@
+<resources>
+
+    <string name="app_name">VUMA</string>
+    <string name="vuma_message">VUMA Projektas</string>
+    <string name="menu_register">Registracija</string>
+    <string name="menu_login">Prisijungimas</string>
+    <string name="title_activity_main">VUMA</string>
+    <string name="vuma_naujienos">NAUJIENOS</string>
+    <string name="vuma_tvarkarastis">TVARKARAŠTIS</string>
+    <string name="vuma_bendravimas">BENDRAVIMAS</string>
+    <string name="vuma_kontaktai">KONTAKTAI</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="login_mail">El. paštas</string>
+    <string name="login_password">Slaptažodis</string>
+    <string name="login_text">Prisijungti</string>
+    <string name="login_remember">Prisiminti?</string>
+    <string name="title_activity_rss_list">RssList</string>
+    <string name="vuma_informacija">Informacija</string>
+    <string name="vuma_menu_back">Atgal</string>
+    <string name="list_null">NULL</string>
+    <string name="rss_autorius">Autorius:</string>
+    <string name="menu_more">Daugiau</string>
+    <string name="menu_help">Pagalba</string>
+    <string name="menu_save">Išsaugoti</string>
+    <string name="schedule_fakultetas">Fakultetas</string>
+    <string name="schedule_programa">Studijų programa</string>
+    <string name="schedule_kursas">Kursas</string>
+    <string name="schedule_grupe">Grupė</string>
+    <string name="schedule_rodyti">Rodyti</string>
+    
+    <string name="contacts_mif">Matematikos ir informatikos fakultetas</string>
+    <string name="mif_nr">370 5 219 3050</string>
+    <string name="mif_adress">Didlaukio g. 47, LT-08303 Vilnius</string>
+	<string name="contacts_ff">Fizikos fakultetas</string>
+    <string name="ff_nr">370 5 236 6000</string>
+    <string name="ff_adress">Saulėtekio al. 9, III rūmai,10222 Vilnius</string>
+</resources>
