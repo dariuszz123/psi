@@ -1,9 +1,12 @@
 package com.vuma.vuma;
 
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
@@ -26,8 +29,13 @@ public class MainActivity extends Activity {
         return true;
     }
     public void onClickRssList(View view) {
-    	Intent i = new Intent(this, RssList.class);
-        startActivity(i);
+    	if(isOnline()) {
+	    	Intent i = new Intent(this, RssList.class);
+	        startActivity(i); 
+        }
+    	else {
+    		Toast.makeText(MainActivity.this, "Ðiai funkcijai reikalingas interneto ryðys!", Toast.LENGTH_LONG).show(); 
+    	}
     }
     public void onClickContacts(View view) {
     	Intent i = new Intent(this, Contacts.class);
@@ -50,7 +58,6 @@ public class MainActivity extends Activity {
 
         case R.id.menu_register:
         	Toast.makeText(MainActivity.this, "Preferences is Selecteds", Toast.LENGTH_SHORT).show();
-        	Api.DialogMessage(MainActivity.this, "VUMA registracija", "test test test\r\n\r\nTEST");
             return true;
 
         default:
@@ -61,19 +68,33 @@ public class MainActivity extends Activity {
     {
     	String message = "Vilniaus universiteto mobilioji aplikacija.\n\n" +
     			"Kûrëjas:\nAurimas Sadauskas\nVilimantas Bernotaitis\nDarius Kriðtapavièius\nDonatas Kurapkis\n" +
-    			"Karolis Kleiba\n\nAtnaujinta: 2012-12-08";
+    			"Karolis Kleiba\n\nAtnaujinta: 2012-12-09";
     	AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
     	builder.setCancelable(true);
     	builder.setIcon(R.drawable.ic_launcher);
-    	builder.setTitle("VUMA 1.0");
+    	builder.setTitle("VUMA 1.0.1");
     	builder.setMessage(message);
     	builder.setInverseBackgroundForced(true);
-    	builder.setPositiveButton("Uþdaryti", new DialogInterface.OnClickListener() {
+    	builder.setPositiveButton("Susisiekti", new DialogInterface.OnClickListener() {
     	  public void onClick(DialogInterface dialog, int which) {
-    	    dialog.dismiss();
+    		  dialog.dismiss();
+    		  Api.DialogMessage(MainActivity.this, "VUMA Susisiekti", "Komanda:\nvuma@vuma.lt\nAdresas:\nhttp://vuma.lt");
     	  }
     	});
+    	builder.setNegativeButton("Uþdaryti", new DialogInterface.OnClickListener() {
+      	  public void onClick(DialogInterface dialog, int which) {
+      	    dialog.dismiss();
+      	  }
+      	});
     	AlertDialog alert = builder.create();
     	alert.show();
     }
+	public boolean isOnline() {
+	    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
+	}
 }

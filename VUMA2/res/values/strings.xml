@@ -29,5 +29,11 @@
     <string name="schedule_kursas">Kursas</string>
     <string name="schedule_grupe">Grupė</string>
     <string name="schedule_rodyti">Rodyti</string>
-
+    
+    <string name="contacts_mif">Matematikos ir informatikos fakultetas</string>
+    <string name="mif_nr">370 5 219 3050</string>
+    <string name="mif_adress">Didlaukio g. 47, LT-08303 Vilnius</string>
+	<string name="contacts_ff">Fizikos fakultetas</string>
+    <string name="ff_nr">370 5 236 6000</string>
+    <string name="ff_adress">Saulėtekio al. 9, III rūmai,10222 Vilnius</string>
 </resources>
