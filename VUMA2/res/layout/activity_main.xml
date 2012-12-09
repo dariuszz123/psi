@@ -60,7 +60,7 @@
                     android:ems="10"
                     android:onClick="onClickRssList"
                     android:text="@string/vuma_naujienos" />
-
+
                 <Button
                     android:id="@+id/button2"
                     style="@style/button_text"
@@ -68,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/button"
+                    android:onClick="onClickSchedule"
                     android:text="@string/vuma_tvarkarastis" />
 
                 <Button

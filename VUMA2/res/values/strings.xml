@@ -23,5 +23,11 @@
     <string name="rss_autorius">Autorius:</string>
     <string name="menu_more">Daugiau</string>
     <string name="menu_help">Pagalba</string>
+    <string name="menu_save">Išsaugoti</string>
+    <string name="schedule_fakultetas">Fakultetas</string>
+    <string name="schedule_programa">Studijų programa</string>
+    <string name="schedule_kursas">Kursas</string>
+    <string name="schedule_grupe">Grupė</string>
+    <string name="schedule_rodyti">Rodyti</string>
 
 </resources>

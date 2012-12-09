@@ -33,6 +33,10 @@ public class MainActivity extends Activity {
     	Intent i = new Intent(this, Contacts.class);
         startActivity(i);
     }
+    public void onClickSchedule(View view) {
+    	Intent i = new Intent(this, Schedule.class);
+        startActivity(i);
+    }
     public boolean onOptionsItemSelected(MenuItem item)
     {
 

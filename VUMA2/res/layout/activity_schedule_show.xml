@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#F2F2F2"
+    android:orientation="vertical" >
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#B0B0B0" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/vuma_menu_back"
+                android:onClick="onBackPressed"
+                android:src="@android:drawable/ic_menu_revert" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView1"
+                android:text="@string/app_name"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_menu_save" android:contentDescription="@string/menu_save"/>
+
+        </RelativeLayout>
+
+         <ExpandableListView
+             android:id="@+id/android:list"
+             android:layout_width="match_parent"
+             android:layout_height="fill_parent" >
+
+         </ExpandableListView>
+
+    </LinearLayout>
