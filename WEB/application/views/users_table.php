@@ -25,9 +25,9 @@
         }
     ?></td>
      <td>
-        <a href="#" title="Redaguoti" class="mr5"><i class="icon-pencil"></i></a>
-        <a href="#" title="Delete" class="mr5"><i class="icon-trash"></i></a>
-        <a href="#" title="Siųsti pranešimą"><i class="icon-envelope"></i></a>
+        <a href="<?php echo base_url('user/change_user_data').'/'.$value['id']; ?>" title="Redaguoti" class="mr5"><i class="icon-pencil"></i></a>
+        <a href="<?php echo base_url('user/del_user').'/'.$value['id']; ?>" title="Delete" class="mr5"><i class="icon-trash"></i></a>
+        <a href="<?php echo base_url('user/del_user').'/'.$value['id']; ?>" title="Siųsti pranešimą"><i class="icon-envelope"></i></a>
     </td>
    </tr>
     <?php

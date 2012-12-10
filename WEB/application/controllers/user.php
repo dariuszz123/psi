@@ -85,13 +85,10 @@ class User extends MY_Controller {
         }
     }
 
-    public function del_user() {
+    public function del_user($id) {
         if ($this->user_model->is_loggedin()) {
-            $data = array();
-            $this->set_active_meniu('users_list');
-
-            $this->template->write_view('center_content', 'dash_board', $data);
-            $this->template->render();
+            $this->user_model->delete_user($id);
+            redirect(base_url('user/users_list'));
         } else {
             redirect(base_url());
         }

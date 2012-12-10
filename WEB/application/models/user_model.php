@@ -19,7 +19,9 @@ class User_model extends CI_model {
         $this->load->database();
     }
 
-    
+    public function delete_user($id) {
+        $query = $this->db->query("DELETE FROM `users` WHERE `id` = '$id'");
+    }
     
     public function count_users() {
         $query = $this->db->query("SELECT * FROM `users`");

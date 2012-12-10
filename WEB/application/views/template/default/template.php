@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="tac"><img src="<?php echo base_url('img/Banner.png'); ?>" /></div>
         <?php echo $center_content; ?>
     </div>
     <div class="tac muted"><small>Užkrauta per {elapsed_time} © 2012 VUMA</small></div>
