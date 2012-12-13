@@ -98,10 +98,6 @@ class User extends MY_Controller {
         
     }
 
-    public function make_admins() {
-        
-    }
-
     public function send_message() {
         if ($this->user_model->is_loggedin()) {
             $data = array();
@@ -120,6 +116,16 @@ class User extends MY_Controller {
             $data = array();
             $this->set_active_meniu('change_password');
             $data['nav'] = $this->meniu;
+            if ($_POST) {
+                $success = $this->user_model->change_password($this->input->post('oldpass'), $this->input->post('pass1'), $this->input->post('pass2'));
+                if ($success === true) {
+                   $this->session->set_flashdata('message_error', "Slaptažodis sėkmingai pakeistas");
+                   redirect(current_url());
+                } else {
+                    $this->session->set_flashdata('message_error', "Klaidingi duomenys");
+                    redirect(current_url());
+                }
+            }
             $data['content'] = $this->load->view('change_password', '', true);
             $this->template->write_view('center_content', 'dash_board', $data);
             $this->template->render();

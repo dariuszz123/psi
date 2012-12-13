@@ -1,4 +1,4 @@
-<form action="<?php echo base_url();?>" method="POST">
+<form action="<?php echo base_url();?>/user/change_password" method="POST">
     <h2 class="form-signin-heading">Slaptadžodžio keitimas</h2>
     <?php $this->load->view("errors/message_error"); ?>
     <input type="password" class="input-block-level" placeholder="Senas slaptažodis" name="oldpass">

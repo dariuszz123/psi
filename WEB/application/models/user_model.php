@@ -22,12 +22,12 @@ class User_model extends CI_model {
     public function delete_user($id) {
         $query = $this->db->query("DELETE FROM `users` WHERE `id` = '$id'");
     }
-    
+
     public function count_users() {
         $query = $this->db->query("SELECT * FROM `users`");
         return $query->num_rows();
     }
-    
+
     public function get_all_users($offset, $limit) {
         $query = $this->db->query("SELECT * FROM `users` LIMIT $limit OFFSET $offset");
         return $query->result_array();
@@ -97,19 +97,19 @@ class User_model extends CI_model {
     }
 
     public function register_user($email, $password) {
-                
+
         if (strlen($password) < 6) {
             $this->session->set_flashdata('message_error', "Slaptažodis per trumpas.");
             return false;
         }
-        
+
         if ($this->is_user_exists($email) === true) {
             $this->session->set_flashdata('message_error', "Toks vartotojas jau egzistuoja.");
             return false;
         }
 
         $user_type = $this->get_user_type($email);
-        
+
         if ($user_type === false) {
             $this->session->set_flashdata('message_error', "Klaidingas el. pašto adresas.");
             return false;
@@ -125,9 +125,7 @@ class User_model extends CI_model {
 
         return true;
     }
-    
-    
-    
+
     public function is_valid_activation_hash($user_id, $hash) {
         $user = $this->get_user_data($user_id);
         if ($user && $user['activation_hash'] !== null && $user['activation_hash'] == $hash) {
@@ -157,6 +155,19 @@ class User_model extends CI_model {
 
     public function logout() {
         $this->session->set_userdata('user_id', null);
+    }
+
+    public function change_password($old_password, $newpassword, $newpassword2) {
+        if ($newpassword === $newpassword2) {
+            $user = $this->get_user();
+            echo $user['user_password'];
+            if ($user['user_password'] == $this->encode_pass($old_password)) {
+                echo $user['user_password'];
+                $this->db->query("UPDATE `users` SET `user_password` = '".$this->encode_pass($newpassword)."' WHERE `id` = '".$user['id']."'");
+                return true;
+            }
+        }
+        return false;
     }
 
 }
