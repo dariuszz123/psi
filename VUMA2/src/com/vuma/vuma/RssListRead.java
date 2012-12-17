@@ -15,11 +15,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.text.Html;
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
@@ -58,10 +54,12 @@ public class RssListRead extends ListActivity {
 			// creating new HashMap
 			HashMap<String, String> map = new HashMap<String, String>();
 			Element e = (Element) nl.item(i);
+			String decs = parser.getValue(e, KEY_DESC);
+			decs = "test";
 			// adding each child node to HashMap key => value
 			map.put(KEY_ID, parser.getValue(e, KEY_ID));
 			map.put(KEY_NAME, parser.getValue(e, KEY_NAME));
-			map.put(KEY_DESC, parser.getValue(e, KEY_DESC));
+			map.put(KEY_DESC, decs);
 			map.put(KEY_COST, parser.getValue(e, KEY_COST));
 
 			// adding HashList to ArrayList

@@ -37,7 +37,7 @@ public class Schedule_show extends ExpandableListActivity {
     }
  
     /* Creating the Hashmap for the row */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private List createGroupList() {
           ArrayList result = new ArrayList();
 	            HashMap p = new HashMap();
@@ -59,7 +59,7 @@ public class Schedule_show extends ExpandableListActivity {
     }
  
     /* creatin the HashMap for the children */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private List createChildList() {
  
         ArrayList result = new ArrayList();

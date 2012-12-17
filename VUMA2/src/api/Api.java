@@ -3,10 +3,8 @@ package api;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.view.View;
 
 import com.vuma.vuma.R;
-import com.vuma.vuma.R.drawable;
 
 public class Api {
     public static void DialogMessage(Context context, String title, String message)

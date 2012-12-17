@@ -1,17 +1,13 @@
 package com.vuma.vuma;
 
-	import android.os.Bundle;
+import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-import api.Api;
 
 	public class Schedule extends Activity {
 
